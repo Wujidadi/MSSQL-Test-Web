@@ -1,5 +1,11 @@
 <?php
 
-use Libraries\MSSQL;
+chdir(__DIR__);
+require_once '../bootstrap/cli.php';
 
-$dbConn = MSSQL::getInstance();
+use Libraries\MSSQL;
+use App\Handlers\TestDB;
+
+$result = TestDB::getInstance()->createDB();
+
+var_dump($result);
