@@ -148,7 +148,7 @@ class MSSQL
      * @param  array   $bind  綁定變數，可代入一維或二維陣列  
      *                        為一維陣列時，各項以預設的 `PDO::PARAM_STR` 型態綁定  
      *                        為二維陣列時，各項的第一項（`[0]`）為值，第二項（`[1]`）為綁定型態
-     * @return array|integer|null
+     * @return array|integer
      */
     public function query(string $sql, array $bind = [])
     {
@@ -173,6 +173,6 @@ class MSSQL
             return $query->fetchAll(\PDO::FETCH_ASSOC);
         }
 
-        return null;
+        return $query->rowCount();
     }
 }
